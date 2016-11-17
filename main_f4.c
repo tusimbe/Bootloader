@@ -312,7 +312,9 @@ board_init(void)
 
 	if (check_silicon() && board_info.fw_size == (2 * 1024 * 1024) - BOOTLOADER_RESERVATION_SIZE) {
 		board_info.fw_size = (1024 * 1024) - BOOTLOADER_RESERVATION_SIZE;
-	}
+	} else {
+            board_info.fw_size -= BOARD_FLASH_RESERVE * 128 * 1024;
+        }
 
 #endif
 
@@ -462,7 +464,7 @@ clock_deinit(void)
 uint32_t
 flash_func_sector_size(unsigned sector)
 {
-	if (sector < BOARD_FLASH_SECTORS) {
+	if (sector < BOARD_FLASH_SECTORS - BOARD_FLASH_RESERVE) {
 		return flash_sectors[sector].size;
 	}
 
@@ -472,7 +474,7 @@ flash_func_sector_size(unsigned sector)
 void
 flash_func_erase_sector(unsigned sector)
 {
-	if (sector >= BOARD_FLASH_SECTORS) {
+	if (sector >= BOARD_FLASH_SECTORS - BOARD_FLASH_RESERVE) {
 		return;
 	}
 

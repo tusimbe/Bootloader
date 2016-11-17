@@ -27,6 +27,8 @@
 # define BOARD_FLASH_SECTORS            11
 # define BOARD_FLASH_SIZE               (1024 * 1024)
 
+# define BOARD_FLASH_RESERVE            0
+
 # define OSC_FREQ                       24
 
 # define BOARD_PIN_LED_ACTIVITY         GPIO15
@@ -80,6 +82,9 @@
 # define _FLASH_KBYTES                  (*(uint16_t *)0x1fff7a22)
 # define BOARD_FLASH_SECTORS            ((_FLASH_KBYTES == 0x400) ? 11 : 23)
 # define BOARD_FLASH_SIZE               (_FLASH_KBYTES * 1024)
+
+// reserve last two sectors for storage
+# define BOARD_FLASH_RESERVE            2
 
 # define OSC_FREQ                       24
 
@@ -135,6 +140,9 @@
 # define BOARD_FLASH_SECTORS            ((_FLASH_KBYTES == 0x400) ? 11 : 23)
 # define BOARD_FLASH_SIZE               (_FLASH_KBYTES * 1024)
 
+// reserve last two sectors for storage
+# define BOARD_FLASH_RESERVE            2
+
 # define OSC_FREQ                       24
 
 # define BOARD_PIN_LED_ACTIVITY         GPIO3
@@ -187,6 +195,8 @@
 # define BOARD_FLASH_SECTORS            11
 # define BOARD_FLASH_SIZE               (1024 * 1024)
 
+# define BOARD_FLASH_RESERVE            0
+
 # define OSC_FREQ                       24
 
 # define BOARD_PIN_LED_ACTIVITY         GPIO3
@@ -213,6 +223,8 @@
 # define BOARD_TYPE                     99
 # define BOARD_FLASH_SECTORS            11
 # define BOARD_FLASH_SIZE               (1024 * 1024)
+
+# define BOARD_FLASH_RESERVE            0
 
 # define OSC_FREQ                       8
 
@@ -269,6 +281,8 @@
 # define BOARD_TYPE                     10
 # define FLASH_SECTOR_SIZE              0x400
 
+# define BOARD_FLASH_RESERVE            0
+
 /****************************************************************************
  * TARGET_HW_PX4_AEROCORE_V1
  ****************************************************************************/
@@ -286,6 +300,8 @@
 # define BOARD_TYPE                     98
 # define BOARD_FLASH_SECTORS            23
 # define BOARD_FLASH_SIZE               (2048 * 1024)
+
+# define BOARD_FLASH_RESERVE            0
 
 # define OSC_FREQ                       24
 
@@ -349,6 +365,8 @@
 # define BOARD_FLASH_SECTORS            116
 # define BOARD_TYPE                     0x14
 # define FLASH_SECTOR_SIZE              0x400
+
+# define BOARD_FLASH_RESERVE            0
 
 #else
 # error Undefined Target Hardware
