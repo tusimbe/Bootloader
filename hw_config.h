@@ -52,6 +52,8 @@
 # define BOOTLOADER_DELAY               5000
 # define BOARD_FMUV2
 # define INTERFACE_USB                  1
+# define INTERFACE_USART                1
+
 # define USBDEVICESTRING                "PX4 BL FMU v2.x"
 # define USBPRODUCTID                   0x0011
 # define BOOT_DELAY_ADDRESS             0x000001a0
@@ -63,15 +65,25 @@
 
 # define OSC_FREQ                       24
 
-# define BOARD_PIN_LED_ACTIVITY         0               // no activity LED
-# define BOARD_PIN_LED_BOOTLOADER       GPIO12
-# define BOARD_PORT_LEDS                GPIOE
-# define BOARD_CLOCK_LEDS               RCC_AHB1ENR_IOPEEN
+# define BOARD_USART                    USART2
+# define BOARD_USART_CLOCK_REGISTER     RCC_APB1ENR
+# define BOARD_USART_CLOCK_BIT          RCC_APB1ENR_USART2EN
+
+# define BOARD_PORT_USART               GPIOD
+# define BOARD_PIN_TX                   GPIO5
+# define BOARD_PIN_RX                   GPIO6
+# define BOARD_USART_PIN_CLOCK_REGISTER RCC_AHB1ENR
+# define BOARD_USART_PIN_CLOCK_BIT      RCC_AHB1ENR_IOPDEN
+
+# define BOARD_PIN_LED_ACTIVITY         GPIO2              // no activity LED
+# define BOARD_PIN_LED_BOOTLOADER       GPIO5
+# define BOARD_PORT_LEDS                GPIOG
+# define BOARD_CLOCK_LEDS               RCC_AHB1ENR_IOPGEN
 # define BOARD_LED_ON                   gpio_clear
 # define BOARD_LED_OFF                  gpio_set
 
-# define BOARD_FORCE_BL_PIN_OUT         GPIO14
-# define BOARD_FORCE_BL_PIN_IN          GPIO11
+# define BOARD_FORCE_BL_PIN_OUT         GPIO12
+# define BOARD_FORCE_BL_PIN_IN          GPIO15
 # define BOARD_FORCE_BL_PORT            GPIOE
 # define BOARD_FORCE_BL_CLOCK_REGISTER  RCC_AHB1ENR
 # define BOARD_FORCE_BL_CLOCK_BIT       RCC_AHB1ENR_IOPEEN

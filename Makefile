@@ -48,21 +48,8 @@ clean:
 #
 # Specific bootloader targets.
 #
-
-px4fmu_bl: $(MAKEFILE_LIST) $(LIBOPENCM3)
-	make -f Makefile.f4 TARGET_HW=PX4_FMU_V1 LINKER_FILE=stm32f4.ld TARGET_FILE_NAME=$@
-
 px4fmuv2_bl: $(MAKEFILE_LIST) $(LIBOPENCM3)
 	make -f Makefile.f4 TARGET_HW=PX4_FMU_V2  LINKER_FILE=stm32f4.ld TARGET_FILE_NAME=$@
-
-px4discovery_bl: $(MAKEFILE_LIST) $(LIBOPENCM3)
-	make -f Makefile.f4 TARGET_HW=PX4_DISCOVERY_V1  LINKER_FILE=stm32f4.ld TARGET_FILE_NAME=$@
-
-px4flow_bl: $(MAKEFILE_LIST) $(LIBOPENCM3)
-	make -f Makefile.f4 TARGET_HW=PX4_FLOW_V1  LINKER_FILE=stm32f4.ld TARGET_FILE_NAME=$@
-
-px4aerocore_bl: $(MAKEFILE_LIST) $(LIBOPENCM3)
-	make -f Makefile.f4 TARGET_HW=PX4_AEROCORE_V1 LINKER_FILE=stm32f4.ld TARGET_FILE_NAME=$@
 
 # Default bootloader delay is *very* short, just long enough to catch
 # the board for recovery but not so long as to make restarting after a 
@@ -71,8 +58,6 @@ px4aerocore_bl: $(MAKEFILE_LIST) $(LIBOPENCM3)
 px4io_bl: $(MAKEFILE_LIST) $(LIBOPENCM3)
 	make -f Makefile.f1 TARGET_HW=PX4_PIO_V1 LINKER_FILE=stm32f1.ld TARGET_FILE_NAME=$@
 
-px4mavstation_bl: $(MAKEFILE_LIST) $(LIBOPENCM3)
-	make -f Makefile.f1 TARGET_HW=PX4_MAVSTATION_V1 LINKER_FILE=12K-stm32f1.ld TARGET_FILE_NAME=$@
 
 #
 # Binary management
